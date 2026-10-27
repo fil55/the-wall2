@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="it">
+
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="google" value="notranslate">
+
+
+
+<style>
+
+  h1 {
+    border-bottom: 1px solid #c0c0c0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    white-space: nowrap;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  th {
+    cursor: pointer;
+  }
+
+  td.detailsColumn {
+    padding-inline-start: 2em;
+    text-align: end;
+    white-space: nowrap;
+  }
+
+  a.icon {
+    padding-inline-start: 1.5em;
+    text-decoration: none;
+    user-select: auto;
+  }
+
+  a.icon:hover {
+    text-decoration: underline;
+  }
+
+  a.file {
+    background : url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAABnRSTlMAAAAAAABupgeRAAABEElEQVR42nRRx3HDMBC846AHZ7sP54BmWAyrsP588qnwlhqw/k4v5ZwWxM1hzmGRgV1cYqrRarXoH2w2m6qqiqKIR6cPtzc3xMSML2Te7XZZlnW7Pe/91/dX47WRBHuA9oyGmRknzGDjab1ePzw8bLfb6WRalmW4ip9FDVpYSWZgOp12Oh3nXJ7nxoJSGEciteP9y+fH52q1euv38WosqA6T2gGOT44vry7BEQtJkMAMMpa6JagAMcUfWYa4hkkzAc7fFlSjwqCoOUYAF5RjHZPVCFBOtSBGfgUDji3c3jpibeEMQhIMh8NwshqyRsBJgvF4jMs/YlVR5KhgNpuBLzk0OcUiR3CMhcPaOzsZiAAA/AjmaB3WZIkAAAAASUVORK5CYII=") left top no-repeat;
+  }
+
+  a.dir {
+    background : url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABt0lEQVR42oxStZoWQRCs2cXdHTLcHZ6EjAwnQWIkJyQlRt4Cd3d3d1n5d7q7ju1zv/q+mh6taQsk8fn29kPDRo87SDMQcNAUJgIQkBjdAoRKdXjm2mOH0AqS+PlkP8sfp0h93iu/PDji9s2FzSSJVg5ykZqWgfGRr9rAAAQiDFoB1OfyESZEB7iAI0lHwLREQBcQQKqo8p+gNUCguwCNAAUQAcFOb0NNGjT+BbUC2YsHZpWLhC6/m0chqIoM1LKbQIIBwlTQE1xAo9QDGDPYf6rkTpPc92gCUYVJAZjhyZltJ95f3zuvLYRGWWCUNkDL2333McBh4kaLlxg+aTmyL7c2xTjkN4Bt7oE3DBP/3SRz65R/bkmBRPGzcRNHYuzMjaj+fdnaFoJUEdTSXfaHbe7XNnMPyqryPcmfY+zURaAB7SHk9cXSH4fQ5rojgCAVIuqCNWgRhLYLhJB4k3iZfIPtnQiCpjAzeBIRXMA6emAqoEbQSoDdGxFUrxS1AYcpaNbBgyQBGJEOnYOeENKR/iAd1npusI4C75/c3539+nbUjOgZV5CkAU27df40lH+agUdIuA/EAgDmZnwZlhDc0wAAAABJRU5ErkJggg==") left top no-repeat;
+  }
+
+  a.up {
+    background : url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACM0lEQVR42myTA+w1RxRHz+zftmrbdlTbtq04qRGrCmvbDWp9tq3a7tPcub8mj9XZ3eHOGQdJAHw77/LbZuvnWy+c/CIAd+91CMf3bo+bgcBiBAGIZKXb19/zodsAkFT+3px+ssYfyHTQW5tr05dCOf3xN49KaVX9+2zy1dX4XMk+5JflN5MBPL30oVsvnvEyp+18Nt3ZAErQMSFOfelCFvw0HcUloDayljZkX+MmamTAMTe+d+ltZ+1wEaRAX/MAnkJdcujzZyErIiVSzCEvIiq4O83AG7LAkwsfIgAnbncag82jfPPdd9RQyhPkpNJvKJWQBKlYFmQA315n4YPNjwMAZYy0TgAweedLmLzTJSTLIxkWDaVCVfAbbiKjytgmm+EGpMBYW0WwwbZ7lL8anox/UxekaOW544HO0ANAshxuORT/RG5YSrjlwZ3lM955tlQqbtVMlWIhjwzkAVFB8Q9EAAA3AFJ+DR3DO/Pnd3NPi7H117rAzWjpEs8vfIqsGZpaweOfEAAFJKuM0v6kf2iC5pZ9+fmLSZfWBVaKfLLNOXj6lYY0V2lfyVCIsVzmcRV9Y0fx02eTaEwhl2PDrXcjFdYRAohQmS8QEFLCLKGYA0AeEakhCCFDXqxsE0AQACgAQp5w96o0lAXuNASeDKWIvADiHwigfBINpWKtAXJvCEKWgSJNbRvxf4SmrnKDpvZavePu1K/zu/due1X/6Nj90MBd/J2Cic7WjBp/jUdIuA8AUtd65M+PzXIAAAAASUVORK5CYII=") left top no-repeat;
+  }
+
+  html[dir=rtl] a {
+    background-position-x: right;
+  }
+
+  #parentDirLinkBox {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+</style>
+
+<title id="title"></title>
+
+</head>
+
+<body>
+
+<h1 id="header">The wall 2</h1>
+
+<table>
+
+
+<thead>
+	<tr>
+		<td style="text-align: center;">
+			<a href="the wall 2.webp" data-preview-image-ranking="2">
+			   <img  src="the wall 2.webp" style="width:40%" title="the wall 1" >
+			</a>
+		</td> 
+	</tr>
+</thead>
+  
+
+
+  <tbody id="tbody">
+  
+  	 <!-- 		http://localhost/the wall2.html
+
+  <tr><td data-value="Another brick in the wall (parts 1).mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/Another%20brick%20in%20the%20wall%20(parts%201).mp3">Another brick in the wall (parts 1).mp3</a></td></tr>
+
+<tr><td data-value="Another brick in the wall (parts 2).mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/Another%20brick%20in%20the%20wall%20(parts%202).mp3">Another brick in the wall (parts 2).mp3</a></td>
+</tr>
+
+<tr><td data-value="Another brick in the wall (parts 3).mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/Another%20brick%20in%20the%20wall%20(parts%203).mp3">Another brick in the wall (parts 3).mp3</a></td>
+</tr>
+
+<tr><td data-value="Don't leave me now.mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/Don't%20leave%20me%20now.mp3">Don't leave me now.mp3</a></td></tr>
+
+<tr><td data-value="Empty spaces.mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/Empty%20spaces.mp3">Empty spaces.mp3</a></td></tr>
+
+<tr><td data-value="goodbye blue skay.mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/goodbye%20blue%20skay.mp3">goodbye blue skay.mp3</a></td></tr>
+
+<tr><td data-value="Goodbye cruel word.mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/Goodbye%20cruel%20word.mp3">Goodbye cruel word.mp3</a></td></tr>
+
+<tr><td data-value="In the flesh.mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/In%20the%20flesh.mp3">In the flesh.mp3</a></td></tr>
+
+<tr><td data-value="Mother.mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/Mother.mp3">Mother.mp3</a></td></tr>
+
+<tr><td data-value="One of my turns.mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/One%20of%20my%20turns.mp3">One of my turns.mp3</a></td></tr>
+
+<tr><td data-value="The happiest days of our lives.mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/The%20happiest%20days%20of%20our%20lives.mp3">The happiest days of our lives.mp3</a></td>
+</tr>
+
+<tr><td data-value="The thin ice.mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/The%20thin%20ice.mp3">The thin ice.mp3</a></td></tr>
+
+<tr><td data-value="Young lust.mp3"><a class="icon file" draggable="true" href="/Pink%20Floyd/The%20wall%202/Young%20lust.mp3">Young lust.mp3</a></td></tr>
+
+ 
+   -->  
+
+ <!-- 		https://fil55.github.io/the wall2/  -->
+
+  <tr><td data-value="Another brick in the wall (parts 1).mp3"><a class="icon file" draggable="true" href="Another%20brick%20in%20the%20wall%20(parts%201).mp3">Another brick in the wall (parts 1).mp3</a></td></tr>
+
+<tr><td data-value="Another brick in the wall (parts 2).mp3"><a class="icon file" draggable="true" href="Another%20brick%20in%20the%20wall%20(parts%202).mp3">Another brick in the wall (parts 2).mp3</a></td>
+</tr>
+
+<tr><td data-value="Another brick in the wall (parts 3).mp3"><a class="icon file" draggable="true" href="Another%20brick%20in%20the%20wall%20(parts%203).mp3">Another brick in the wall (parts 3).mp3</a></td>
+</tr>
+
+<tr><td data-value="Don't leave me now.mp3"><a class="icon file" draggable="true" href="Don't%20leave%20me%20now.mp3">Don't leave me now.mp3</a></td></tr>
+
+<tr><td data-value="Empty spaces.mp3"><a class="icon file" draggable="true" href="Empty%20spaces.mp3">Empty spaces.mp3</a></td></tr>
+
+<tr><td data-value="goodbye blue skay.mp3"><a class="icon file" draggable="true" href="goodbye%20blue%20skay.mp3">goodbye blue skay.mp3</a></td></tr>
+
+<tr><td data-value="Goodbye cruel word.mp3"><a class="icon file" draggable="true" href="Goodbye%20cruel%20word.mp3">Goodbye cruel word.mp3</a></td></tr>
+
+<tr><td data-value="In the flesh.mp3"><a class="icon file" draggable="true" href="In%20the%20flesh.mp3">In the flesh.mp3</a></td></tr>
+
+<tr><td data-value="Mother.mp3"><a class="icon file" draggable="true" href="Mother.mp3">Mother.mp3</a></td></tr>
+
+<tr><td data-value="One of my turns.mp3"><a class="icon file" draggable="true" href="One%20of%20my%20turns.mp3">One of my turns.mp3</a></td></tr>
+
+<tr><td data-value="The happiest days of our lives.mp3"><a class="icon file" draggable="true" href="The%20happiest%20days%20of%20our%20lives.mp3">The happiest days of our lives.mp3</a></td>
+</tr>
+
+<tr><td data-value="The thin ice.mp3"><a class="icon file" draggable="true" href="The%20thin%20ice.mp3">The thin ice.mp3</a></td></tr>
+
+<tr><td data-value="Young lust.mp3"><a class="icon file" draggable="true" href="Young%20lust.mp3">Young lust.mp3</a></td></tr>
+
+ 
+
+
+  </tbody>
+
+</table>
+
+</body>
+
+</html>
+
+
